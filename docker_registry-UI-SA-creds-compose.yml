@@ -1,0 +1,37 @@
+version: '2.0'
+services:
+  registry:
+    image: registry:2.7
+    ports:
+      - 5000:5000
+    volumes:
+      - ./registry-data:/var/lib/registry
+      - ./registry-config/credentials.yml:/etc/docker/registry/config.yml  
+      - ./registry-config/htpasswd:/etc/docker/registry/htpasswd
+
+  ui:
+    image: joxit/docker-registry-ui:static
+    ports:
+#      - 80:80
+      - 5001:80
+      - 443:443  
+    environment:
+      - REGISTRY_TITLE=My Private Docker Registry
+#      - URL=http://localhost:5000
+      - URL=http://localhost:5000
+#      - REGISTRY_URL=http://registry:5000
+#      - REGISTRY_URL=http://127.0.0.1:5000
+      - DELETE_IMAGES=true
+      - NGINX_PROXY_HEADER_X_Forwarded_For=$$proxy_add_x_forwarded_for
+#      - Access-Control-Allow-Credentials=true
+      - NGINX_PROXY_HEADER_Authorization=Basic cmVnaXN0cnk6dWk=
+#      - NGINX_PROXY_HEADER_Host='$http_host'
+#      - NGINX_PROXY_HEADER_X_Forwarded_For=$$proxy_add_x_forwarded_for
+    volumes:
+#      - ./nginx.env:/etc/nginx/.env
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - /etc/nginx/snippets:/etc/nginx/snippets  
+      - /etc/ssl/certs/nginx-selfsigned.crt:/etc/ssl/certs/nginx-selfsigned.crt
+      - /etc/ssl/private/nginx-selfsigned.key:/etc/ssl/private/nginx-selfsigned.key  
+    depends_on:
+      - registry

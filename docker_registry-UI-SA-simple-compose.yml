@@ -1,0 +1,44 @@
+#Docker Registry Static UI - Standalone via HOST's NGINX reverse-proxy from HTTPS
+
+version: '2.0'
+services:
+  registry:
+    image: registry:2.7
+    ports:
+      - 5000:5000
+      #- 5000
+    volumes:
+      #- /media/backup/Docker_Registry/registry-data:/var/lib/registry
+      #- /media/backup/Docker_Registry/registry-config/config.yml:/etc/docker/registry/config.yml
+      - ./registry-data:/var/lib/registry
+      - ./registry-config/simple.yml:/etc/docker/registry/config.yml
+        
+  #networks:
+    #- registry-ui-net 
+  
+#image: 'static' tag means: 
+#In the static interface, it will connect to a single registry and will not change. 
+#The configuration is done at the start of the interface, when you use the docker images whose tags contain the static keyword.
+
+#This web user interface uses Riot the react-like user interface micro-library and riot-mui components.        
+
+  ui:
+    image: joxit/docker-registry-ui:static
+    ports:
+      #- 80:80
+      - 80
+    environment:
+      - REGISTRY_TITLE=My Private Docker Registry
+      - URL=http://localhost:5000
+      #- REGISTRY_URL=http://registry:5000
+      - DELETE_IMAGES=true
+      - NGINX_PROXY_HEADER_X_Forwarded_For=$$proxy_add_x_forwarded_for
+#    volumes:
+#      - ./nginx/env:/etc/nginx/.env
+    depends_on:
+      - registry
+#    networks:
+#      registry-ui-net
+
+#networks:
+#  registry-ui-net:
