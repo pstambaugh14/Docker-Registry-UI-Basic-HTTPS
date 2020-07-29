@@ -4,7 +4,7 @@ All credit is due to the original author for creating the backbone of the docker
 
 I am simply looking to make things overly complicated for no reason XD.
 
-##GOALS
+## https://github.com/Joxit/docker-registry-uiGOALS
 Currently:
 
 1) Configured Basic Authentication
