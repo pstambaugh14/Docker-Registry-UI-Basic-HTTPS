@@ -1,4 +1,4 @@
-#This is essentially a fork of: https://github.com/Joxit/docker-registry-ui
+# This is essentially a fork of: https://github.com/Joxit/docker-registry-ui
 
 All credit is due to the original author for creating the backbone of the docker-registry deployment as well as the dashboard.
 
