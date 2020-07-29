@@ -12,13 +12,14 @@ services:
   ui:
     image: joxit/docker-registry-ui:static
     ports:
-#      - 80:80
-      - 5001:80
+      - 80:80
+#      - 5001:80
       - 443:443  
     environment:
       - REGISTRY_TITLE=My Private Docker Registry
 #      - URL=http://localhost:5000
-      - URL=http://localhost:5000
+#      - URL=http://localhost:5000
+      - URL=http://172.20.0.2:5000
 #      - REGISTRY_URL=http://registry:5000
 #      - REGISTRY_URL=http://127.0.0.1:5000
       - DELETE_IMAGES=true
