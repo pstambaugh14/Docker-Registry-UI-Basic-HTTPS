@@ -1,10 +1,11 @@
-# This is essentially a fork of: https://github.com/Joxit/docker-registry-ui
+# https://github.com/pstambaugh14/Docker-Registry-UI-Basic-HTTPS/
+## This is essentially a fork of: https://github.com/Joxit/docker-registry-ui
 
 All credit is due to the original author for creating the backbone of the docker-registry deployment as well as the dashboard.
 
 I am simply looking to make things overly complicated for no reason XD.
 
-## https://github.com/Joxit/docker-registry-uiGOALS
+## GOALS
 Currently:
 
 1) Configured Basic Authentication
