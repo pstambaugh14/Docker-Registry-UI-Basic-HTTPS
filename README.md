@@ -26,6 +26,10 @@ I am simply looking to make things overly complicated for no reason XD.
 6) To now, actually make the registry itself secure via SSL! :) - Complete! (very slight configurations changed in the process of doing so). :)
 7) Re-Configured recycle_docker.sh so that it can be run without affecting overall Docker environment.  :)
 8) Still need to officially make into a service, however, added: restart=always to Registry (not UI).
+9) Added Volume point for config nginx.conf, as: Before you can push an image to the registry, you need to ensure that your registry will be able to handle large file uploads. Although Docker splits large image uploads into separate layers, they can sometimes be over 1GB. By default, Nginx has a limit of 1MB on file uploads, so you need to edit the configuration file for nginx and set the max file upload size to 2GB.:
+
+    client_max_body_size 2000M;
+
 
 ## Future Goals:
 1) Setup and Configure Redis Cache for improved caching. :)
