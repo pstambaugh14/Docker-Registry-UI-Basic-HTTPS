@@ -25,7 +25,8 @@ I am simply looking to make things overly complicated for no reason XD.
 
 ## Future Goals:
 1) To now, actually make the registry itself secure via SSL! :)
-2) Use my new registry install to actually build a Docker Image out of what I have just made here... :)
+2) Create the Docker Registry as a Service using Docker Swarm. (And possibly the same for the UI...?)
+3) Use my new registry install to actually build a Docker Image out of what I have just made here... :)
 
 
 # Original Instructions
