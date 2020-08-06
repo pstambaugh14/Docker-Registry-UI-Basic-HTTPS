@@ -1,9 +1,12 @@
-# https://github.com/pstambaugh14/Docker-Registry-UI-Basic-HTTPS/
+# Docker Registry UI with HTTP Basic Authentication and SSL Termination (HTTPS)
+##https://github.com/pstambaugh14/Docker-Registry-UI-Basic-HTTPS/
 ## This is essentially a fork of: https://github.com/Joxit/docker-registry-ui
 
-All credit is due to the original author for creating the backbone of the docker-registry deployment as well as the dashboard.
+All credit is due to the original author 'Joxit' for creating the backbone of the docker-registry deployment as well as the dashboard.
 
 I am simply looking to make things overly complicated for no reason XD.
+
+Over-complications include: chained x509 certificate, HTTP-HTTPS 301 redirect, using HTTPS via SSL for UI, added debug/testing/building/devops scripts for configuration change  / build optimization, and added HTTP Basic Authentication for UI logins with hashed username/password in base64 configs.  
 
 # GOALS
 Currently:
