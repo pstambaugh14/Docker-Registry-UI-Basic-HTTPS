@@ -3,17 +3,11 @@ services:
   registry:
     image: registry:2.7
     ports:
-      - 5000:5000    
-    environment: 
-      - REGISTRY_HTTP_ADDR=0.0.0.0:5000
-      - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/fullchain.pem
-      - REGISTRY_HTTP_TLS_KEY=/certs/privkey.pem    
+      - 5000:5000
     volumes:
       - ./registry-data:/var/lib/registry
       - ./registry-config/credentials.yml:/etc/docker/registry/config.yml  
       - ./registry-config/htpasswd:/etc/docker/registry/htpasswd
-      - ./nginx/fullchain.pem:/certs/fullchain.pem
-      - ./nginx/privkey.pem:/certs/privkey.pem  
 
   ui:
     image: joxit/docker-registry-ui:static
