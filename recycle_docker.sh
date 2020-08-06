@@ -29,7 +29,7 @@ done < /tmp/dckrpsaq.tmp
 #Erases the temp file.
 rm -f /tmp/dckrpsaq.tmp
 
-docker-compose -f docker_registry-UI-SA-creds-compose.yml up -d
+docker-compose -f docker_registry-UI-PX-creds-compose.yml up -d
 ./populate.sh
 
 sleep 2
