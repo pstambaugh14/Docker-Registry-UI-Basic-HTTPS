@@ -25,6 +25,7 @@ I am simply looking to make things overly complicated for no reason XD.
 5) Use my new registry install to actually build a Docker Image out of what I have just made here... :) - Complete!
 6) To now, actually make the registry itself secure via SSL! :) - Complete! (very slight configurations changed in the process of doing so). :)
 7) Re-Configured recycle_docker.sh so that it can be run without affecting overall Docker environment.  :)
+8) Still need to officially make into a service, however, added: restart=always to Registry (not UI).
 
 ## Future Goals:
 1) Setup and Configure Redis Cache for improved caching. :)
