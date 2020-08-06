@@ -1,6 +1,18 @@
 #Instructions Onto How to Build and Use the Local Registry:
 
 
+#First, need to learn how to BUILD the image correctly, then PUSH it
+#to the registry, then PULL it, then RUN it...
+
+1) Learn How to Build a proper instance for all of this without need
+   for Docker Compose.
+
+2) OR Learn how to build this WITH Docker Compose
+
+3) Then following the following which work:
+
+======================================================================
+
 #Publish to your Private Docker Registry:
 
 1) To test with the first container that shows up in docker ps -a:
@@ -18,4 +30,9 @@
 1) docker login localhost:5000
 
 2) docker pull localhost:5000/test-image
+
+
+======================================================================
+
+
 
