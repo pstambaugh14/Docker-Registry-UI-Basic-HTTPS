@@ -1,4 +1,5 @@
-# Docker Registry UI with HTTP Basic Authentication and SSL Termination (HTTPS)
+# Docker Registry UI with: 
+# Basic Authentication and SSL Termination (HTTPS)
 ##https://github.com/pstambaugh14/Docker-Registry-UI-Basic-HTTPS/
 ## This is essentially a fork of: https://github.com/Joxit/docker-registry-ui
 
