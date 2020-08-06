@@ -4,3 +4,6 @@ registry-data/
 *.pem
 Docker_Registry_SA_Simple_Run.sh
 default.conf.quasi
+hostfile
+*.bak
+*.srl
