@@ -24,7 +24,8 @@ I am simply looking to make things overly complicated for no reason XD.
    If you care to test this script to help expedite your build process, then please stop and rm all other running Docker containers until done with this script.  
 
 ## Future Goals:
-1) Use my new registry install to actually build a Docker Image out of what I have just made here... :)
+1) To now, actually make the registry itself secure via SSL! :)
+2) Use my new registry install to actually build a Docker Image out of what I have just made here... :)
 
 
 # Original Instructions
