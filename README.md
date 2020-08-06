@@ -21,13 +21,14 @@ I am simply looking to make things overly complicated for no reason XD.
 3) Fully utilizing an OpenSSL self-signed certificate to secure sessions. - Complete!
 4) Added self-made script to expedite process of building process (recycle_docker.sh). -  Complete
    WARNING: do NOT run this if you are running other Docker Containers other than the ones we are testing - joxit/docker-registry-ui:static and registry:2.7.
-   If you care to test this script to help expedite your build process, then please stop and rm all other running Docker containers until done with this script.  
+   If you care to test this script to help expedite your build process, then please stop and rm all other running Docker containers until done with this script.
+5) Use my new registry install to actually build a Docker Image out of what I have just made here... :) - Complete!
 
 ## Future Goals:
 1) To now, actually make the registry itself secure via SSL! :)
 2) Setup and Configure Redis Cache for improved caching. :)
 2) Create the Docker Registry as a Service using Docker Swarm. (And possibly the same for the UI...?) :) 
-3) Use my new registry install to actually build a Docker Image out of what I have just made here... :)
+
 
 
 # Original Instructions
