@@ -1,5 +1,5 @@
 # Docker Registry UI - With Basic Auth and SSL
-##https://github.com/pstambaugh14/Docker-Registry-UI-Basic-HTTPS/
+## https://github.com/pstambaugh14/Docker-Registry-UI-Basic-HTTPS/
 ## This is essentially a fork of: https://github.com/Joxit/docker-registry-ui
 
 All credit is due to the original author 'Joxit' for creating the backbone of the docker-registry deployment as well as the dashboard.
