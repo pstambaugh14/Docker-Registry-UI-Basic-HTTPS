@@ -1,1 +1,5 @@
-#registry-data/
+registry-data/
+*.working
+*.working2
+*.pem
+Docker_Registry_SA_Simple_Run.sh
