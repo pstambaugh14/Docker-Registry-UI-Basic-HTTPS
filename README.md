@@ -6,10 +6,14 @@ All credit is due to the original author 'Joxit' for creating the backbone of th
 
 I am simply looking to make things overly complicated for no reason XD.
 
-Over-complications include: chained x509 certificate, HTTP-HTTPS 301 redirect, using HTTPS via SSL for UI, added debug/testing/building/devops scripts for configuration change  / build optimization, and added HTTP Basic Authentication for UI logins with hashed username/password in base64 configs.  
+## Over-complications include: 
+- Chained x509 certificate 
+- HTTP-HTTPS 301 redirect 
+- Using HTTPS via SSL for UI 
+- Debug/testing/building/devops scripts for configuration change/build optimization 
+- HTTP Basic Authentication for UI logins with hashed username/password in base64 configs.  
 
 # GOALS
-Currently:
 
 ## Completed Goals:
 1) Configured Basic Authentication - Complete!
