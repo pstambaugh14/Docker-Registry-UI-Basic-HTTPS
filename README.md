@@ -24,6 +24,7 @@ I am simply looking to make things overly complicated for no reason XD.
    If you care to test this script to help expedite your build process, then please stop and rm all other running Docker containers until done with this script.
 5) Use my new registry install to actually build a Docker Image out of what I have just made here... :) - Complete!
 6) To now, actually make the registry itself secure via SSL! :) - Complete! (very slight configurations changed in the process of doing so). :)
+7) Re-Configured recycle_docker.sh so that it can be run without affecting overall Docker environment.  :)
 
 ## Future Goals:
 1) Setup and Configure Redis Cache for improved caching. :)
@@ -47,12 +48,11 @@ docker-compose -f credentials.yml up -d
 # Docker Registry UI as a Proxy with 301 HTTP-S redirect, HTTPS and Basic Authentication 
 
 ## recycle_docker.sh - What it does and how to use it.
-For testing and building purposes, when making changes and using the mount points for volumes with configuration files that will be changed, you can run:
-WARNING: Do NOT run this if you have other running Docker containers other than the Registry-UI and the Registry itself.  If you care to test this script then stop and remove all other running Docker containers until you are done testing the script!
+For testing and building purposes, when making changes to the configuration files utilized in the mount points for volumes with configuration files that will be changed, you can run:
 ```sh
 ./recycle_docker.sh
 ```
-This Script will stop and remove all running Docker containers (in this case, to test our builds from registry-ui), run our docker-compose on our UI-PX-creds file, therefore re-instantiating our Docker Registry/UI containers with new configuration changes made in our local files that will be mounted by the docker containers via volumes.  I feel this method is a lot easier than having to recreate, reconfigure, rebuild and redeploy the Docker Image of either image - either way is fine - I am just leaving this here in case anyone decides to take this route instead...
+This Script will stop and remove all running Docker containers with name filter *Docker_Registry* (in this case, to test our builds from registry-ui), run our docker-compose on our UI-PX-creds file, therefore re-instantiating our Docker Registry/UI containers with new configuration changes made in our local files that will be mounted by the docker containers via volumes.  I feel this method is a lot easier than having to recreate, reconfigure, rebuild and redeploy the Docker Image of either image - either way is fine - I am just leaving this here in case anyone decides to take this route instead...
 
 Testing Integrated:  This script also has build-in testing once the containers are deployed to then show running Docker containers, display the default Basic Auth, tests the nginx configuration files for errors in the UI container, and follows HTTP redirects using 'cURL' with verbose output to help diagnose where any potential issues may lay from HTTP301 to HTTPS to HTTP on the registry:5000.  
 
