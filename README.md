@@ -34,6 +34,7 @@ I am simply looking to make things overly complicated for no reason XD.
 ## Future Goals:
 1) Setup and Configure Redis Cache for improved caching. :)
 2) Create the Docker Registry as a Service using Docker Swarm. (And possibly the same for the UI...?) :) 
+3) Must learn how to officially build images, deploy them to local/private registry and then run them locally.
 
 
 
