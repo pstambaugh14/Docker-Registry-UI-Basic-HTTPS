@@ -59,4 +59,4 @@ To Run the Script:
 ```
 This will then spin up two containers via the docker_registry-UI-PX-creds-compose.yml: joxit/docker-registry-ui:static and registry:2.7.
 
-## You can also use the 'simple' script and configurations to keep the Proxy HTTP and without Basic Authentication. But this is mainly made for the UI to be used as a Proxy using SSL termination and redirecting HTTP-HTTPS whilst also enabling HTTP Basic-Authenication to provide a username and password for web UI logins also.  
+You can also use the 'simple' script and configurations to keep the Proxy HTTP and without Basic Authentication. But this is mainly made for the UI to be used as a Proxy using SSL termination and redirecting HTTP-HTTPS whilst also enabling HTTP Basic-Authenication to provide a username and password for web UI logins also.  
