@@ -17,7 +17,6 @@ services:
     environment:
       - REGISTRY_TITLE=My Private Docker Registry
 #      - URL=http://localhost:5000
-      - URL=http://localhost:5000
 #      - REGISTRY_URL=http://registry:5000
 #      - REGISTRY_URL=http://127.0.0.1:5000
       - DELETE_IMAGES=true

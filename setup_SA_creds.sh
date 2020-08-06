@@ -9,4 +9,9 @@
 docker-compose -f docker_registry-UI-SA-creds-compose.yml up -d
 ./populate.sh
 
+
+echo ""
 echo "Default Username is 'registry' and default password is 'ui'"
+echo ""
+
+docker ps -a
