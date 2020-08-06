@@ -14,6 +14,7 @@ services:
       - ./registry-config/htpasswd:/etc/docker/registry/htpasswd
       - ./nginx/fullchain.pem:/certs/fullchain.pem
       - ./nginx/privkey.pem:/certs/privkey.pem  
+    restart: always
 
   ui:
     image: joxit/docker-registry-ui:static

@@ -3,9 +3,13 @@
 #Working Example of a non-interactive return of command into stdout (host box's terminal session.)
 #This will run the given command into every running Docker container."
 
+echo ""
+echo "Iterating stop and rm functions on Docker Registry/Registry UI Containers... "
+echo ""
 
 #Docker ps -aq command will return all of the running container ID's line-by-line (carriage return) and output into the tmp file.
-docker ps -aq --filter status=running > /tmp/dckrpsaq.tmp
+#docker ps -aq --filter status=running > /tmp/dckrpsaq.tmp
+docker ps -aq --filter name="docker_registry" > /tmp/dckrpsaq.tmp
 #Iteration beginning
 i=0
 #While loop to 'read' 'line' (automatically knows to read data, line by line via a file).  Will run until $i < total number of lines in the sourced file.
@@ -29,18 +33,28 @@ done < /tmp/dckrpsaq.tmp
 #Erases the temp file.
 rm -f /tmp/dckrpsaq.tmp
 
+
+echo "Done Stopping Docker Registry Containers if Any... "
+echo ""
+echo "Now deploying a fresh instance of Docker Registry and Docker Registry UI... "
 docker-compose -f docker_registry-UI-PX-creds-compose.yml up -d
+echo ""
+echo ""
+echo "Now populating Docker Registry and UI into local Docker Registry"
 ./populate.sh
 
 sleep 2
 
 echo ""
-echo "Default Username is 'registry' and default password is 'ui'"
+#echo "Default Username is 'registry' and default password is 'ui'"
+echo ""
+echo ""
+echo ""
 echo ""
 
 
-echo "Validation of Docker Containers:"
-docker ps -a
+echo "Validation of Docker Containers Beginning:"
+#docker ps -a
 
 echo ""
 echo "And Testing the Containers..."
@@ -50,9 +64,24 @@ echo ""
 uiname=`docker ps -aq --filter name=docker_registry_ui_1`
 docker exec -it "${uiname}" nginx -t
 echo ""
+echo ""
+echo ""
 echo "Application Layer Test via HTTP(S) hops..."
 echo ""
+echo ""
+echo ""
 curl -v -I -L -k --insecure localhost
+echo ""
+echo ""
+echo ""
 echo "" 
 echo "Recycle is now complete.  Please check stdout in shell to analyze progress / issues / completion status! :)"
-
+echo ""
+echo ""
+echo "Listing Running Docker Containers...: "
+echo ""
+echo ""
+docker ps -a
+echo ""
+echo ""
+echo "Default Username is 'registry' and default password is  'ui'."
