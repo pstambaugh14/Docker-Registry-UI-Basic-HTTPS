@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+#This docker-compose.yml file is used specifically in this case to build both the registry and the registry-ui to the private/local registry.
+
+version: '2.0'
+services:
+  registry:
+    image: ${REGISTRY_HOST}/pstambaugh14/registry          
+    build: .
+    ports:
+      - 5000:5000
+    volumes:
+      - ./registry-data:/var/lib/registry
+      - ./registry-config/credentials.yml:/etc/docker/registry/config.yml
+      - ./registry-config/htpasswd:/etc/docker/registry/htpasswd
+
+  ui:
+    image: ${REGISTRY_HOST}/pstambaugh14/registry-ui          
+    build: .
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - REGISTRY_TITLE=My Private Docker Registry
+      - REGISTRY_URL=http://registry:5000
+      - DELETE_IMAGES=true
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/fullchain.pem:/etc/nginx/certs/fullchain.pem
+      - ./nginx/privkey.pem:/etc/nginx/certs/privkey.pem
+    depends_on:
+      - registry
+

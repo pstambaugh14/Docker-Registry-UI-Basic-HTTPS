@@ -6,7 +6,7 @@
 
 #docker network create docker_registry
 
-docker-compose -f docker_registry-UI-SA-creds-compose.yml up -d
+docker-compose -f docker_registry-UI-PX-creds-compose.yml up -d
 ./populate.sh
 
 

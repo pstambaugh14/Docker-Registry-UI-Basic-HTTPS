@@ -1,0 +1,21 @@
+#Instructions Onto How to Build and Use the Local Registry:
+
+
+#Publish to your Private Docker Registry:
+
+1) To test with the first container that shows up in docker ps -a:
+	docker commit $(docker ps -lq) test-image
+2) Then Login to the local registry:
+	docker login localhost:5000
+3) Tag the image for pushing:
+	docker tag test-image localhost:5000/test-image
+4) Push the newly taged image to the local registry:
+	docker push localhost:5000/test-image
+=======================================================================
+
+#Pulling From your Private Docker Registry
+
+1) docker login localhost:5000
+
+2) docker pull localhost:5000/test-image
+
