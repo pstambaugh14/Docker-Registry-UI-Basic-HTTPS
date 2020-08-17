@@ -15,3 +15,5 @@ certs/
 *.orig
 *.py
 gitignore_instuctions.txt
+docker-daemon_curl_test.sh
+docker-registry_curl_test.sh
