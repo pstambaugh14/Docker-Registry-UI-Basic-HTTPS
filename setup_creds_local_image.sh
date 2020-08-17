@@ -1,3 +1,3 @@
 #!/bin/bash
-docker-compose -f docker_registry-UI-PX-creds-compose.yml up -d 
+docker-compose up -d 
 ./populate.sh
