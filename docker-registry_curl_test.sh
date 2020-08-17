@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source hostfile
+source host
 
 PWD=`pwd`
 

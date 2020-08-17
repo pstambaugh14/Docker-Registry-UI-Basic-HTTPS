@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source hostfile
+source host
 
 curl https://$HOST:2376/images/json \
   --cert ~/.docker/certs/cert.pem \
