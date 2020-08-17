@@ -5,7 +5,7 @@ registry-data/
 *.crt
 Docker_Registry_SA_Simple_Run.sh
 default.conf.quasi
-hostfile
+*hostfile
 *.bak
 *.srl
 *.docx
