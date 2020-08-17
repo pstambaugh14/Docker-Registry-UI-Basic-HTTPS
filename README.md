@@ -36,9 +36,10 @@ docker-daemon_curl_test.sh
 ```sh
 docker-registry_curl_test.sh
 ```
-Additional Configuration will be necessary to use this scripts as test by default.  A directory in the local repository for this project will have to be made:
+Additional Configuration will be necessary to use this scripts as test by default.  This would be a directory holding confiruation files for certificates for both the Docker Registry as well as the Docker Daemon if desired...
+A directory in the local repository for this project will have to be made:
 ```sh
-mkdir -p ./test
+mkdir -p ./certs
 ```
 11) Added 'hostfile' where HOST=<ip_address> should be configured.
 12) Added 'Registry_Instructions' for additional help how to use the Docker Registry once installed.
@@ -54,13 +55,17 @@ If you want to populate your registry, use populate.sh script. The interface wil
 
 The simplest way is with simple.yml docker-compose file.
 ```sh
-docker-compose -f simple.yml up -d #Starts Docker Registry without Credentials (No Auth)
-./populate.sh #Tags Images
+#Starts Docker Registry without Credentials (No Auth)
+docker-compose -f simple.yml up -d
+#Tags Images
+./populate.sh
 ```
 You can add some credentials to access your registry wit credentials.yml docker-compose file. Credentials for this example are login: registry and password: ui using bcrypt.
 ```sh
-docker-compose -f credentials.yml up -d #Starts Docker Registry with Credentials (HTTP Basic Auth)
-./populate.sh #Tags Images
+#Starts Docker Registry with Credentials (HTTP Basic Auth)
+docker-compose -f credentials.yml up -d 
+#Tags Images
+./populate.sh 
 ```
 Default Username and Password for the HTTP basic authentication (Registry UI) is:
 username: 'registry'
@@ -92,7 +97,8 @@ openssl req  -newkey rsa:4096 -nodes -sha256 -keyout certs/domain.key -x509 -day
 ```
 Create a Docker certs directory, add domain.crt as ca.crt to Docker and Linux:
 ```sh
-mkdir -p /etc/docker/certs.d/<ip_address> #Where <ip_address> is your ip_address which will be listening.
+#Where <ip_address> is your ip_address which will be listening.
+mkdir -p /etc/docker/certs.d/<ip_address>
 ```
 ```sh
 cp ./certs/domain.crt /etc/docker/certs.d/<ip_address>/ca.crt
