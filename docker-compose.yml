@@ -1,0 +1,59 @@
+version: '2.0'
+services:
+  registry:
+    image: localhost:5000/registry:latest
+    ports:
+      - 5000:5000    
+    environment: 
+      - REGISTRY_HTTP_ADDR=0.0.0.0:5000
+      #- REGISTRY_HTTP_TLS_CERTIFICATE=/certs/fullchain.pem
+      - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt #WORKING
+      #- REGISTRY_HTTP_TLS_KEY=/certs/privkey.pem
+      - REGISTRY_HTTP_TLS_KEY=/certs/domain.key #WORKING
+      # Location of TLK key/cert:
+      #- REGISTRY_HTTP_TLS_CERTIFICATE=/certs/registry_ca_certs/cert.pem
+      #- REGISTRY_HTTP_TLS_KEY=/certs/registry_ca_certs/key.pem
+      # Location of CA of trusted clients:
+      #- REGISTRY_HTTP_TLS_CLIENTCAS_0=/certs/registry_ca_certs/ca.pem
+    volumes:
+      - ./registry-data:/var/lib/registry
+      - ./registry-config/credentials.yml:/etc/docker/registry/config.yml  
+      - ./registry-config/htpasswd:/etc/docker/registry/htpasswd
+      #- ./nginx/fullchain.pem:/certs/fullchain.pem
+      #- ./nginx/privkey.pem:/certs/privkey.pem  
+      - ./certs:/certs
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  
+    restart: always
+
+  ui:
+    image: localhost:5000/joxit/docker-registry-ui:static
+    ports:
+      #- 80:80
+      - 8050:80
+#      - 5001:80
+      #- 443:443
+      - 8049:443  
+    environment:
+      - REGISTRY_TITLE=My Private Docker Registry
+#      - URL=http://localhost:5000
+#      - URL=http://localhost:5000
+      #- URL=https://172.20.0.2:5000
+      - REGISTRY_URL=http://registry:5000
+#      - REGISTRY_URL=http://127.0.0.1:5000
+      - DELETE_IMAGES=true
+###      - NGINX_PROXY_HEADER_X_Forwarded_For=$$proxy_add_x_forwarded_for
+#      - Access-Control-Allow-Credentials=true
+      #- NGINX_PROXY_HEADER_Authorization=Basic cmVnaXN0cnk6dWk=
+#      - NGINX_PROXY_HEADER_Host='$http_host'
+#      - NGINX_PROXY_HEADER_X_Forwarded_For=$$proxy_add_x_forwarded_for
+    volumes:
+#      - ./nginx.env:/etc/nginx/.env
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      #- /etc/nginx/snippets:/etc/nginx/snippets  
+      #- /etc/ssl/certs/nginx-selfsigned.crt:/etc/ssl/certs/nginx-selfsigned.crt
+      #- /etc/ssl/private/nginx-selfsigned.key:/etc/ssl/private/nginx-selfsigned.key
+      - ./nginx/fullchain.pem:/etc/nginx/certs/fullchain.pem
+      - ./nginx/privkey.pem:/etc/nginx/certs/privkey.pem
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  
+    depends_on:
+      - registry
