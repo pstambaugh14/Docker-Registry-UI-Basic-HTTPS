@@ -14,7 +14,3 @@ CA=`find "${PWD}/certs/registry_ca_certs" -type f -name 'ca.pem'`
 
 curl -X GET "https://"${HOST}":2376/v1.40/containers/json?all=false&size=false" -H  "accept: application/json" \
 --cert ~/.docker/certs/cert.pem --key ~/.docker/certs/key.pem --cacert ~/.docker/certs/ca.pem | jq
-<<<<<<< HEAD
-
-=======
->>>>>>> 0c27a5728b6e390ea581495486bc4149ac0a9192
