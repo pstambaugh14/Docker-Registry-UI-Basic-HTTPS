@@ -1,1 +1,4 @@
-HOST=10.0.171.154
+#This is the configuration file providing the Docker Daemon/API's host address for the curl_test script.
+
+#Replace <> with Proper Hostname or IP Address of Docker Daemon/API:
+HOST=<Docker_Daemon/API_IP-Address>
