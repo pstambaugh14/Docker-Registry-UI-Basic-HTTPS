@@ -21,7 +21,7 @@ do
 	#The Docker execuction command using only -t to return from psuedo-tty data to host stdout into newly formed line variable (in this case, the container ID/hostname).
 	#bin/sh -c needs to be called in order to perform the correct functions via shell.  Then, finally the actual non-interactive command we're running:
 	#docker exec -t "${line}" /bin/sh -c 'cat /etc/hostname' #Change 'cat /etc/hostname' to change the non-interactive command desired to be run. 
-        echo "Stopping container "${line}"..." 
+    echo "Stopping container "${line}"..." 
 	docker stop "${line}" 
 	echo "Removing container "${line}"..."
 	docker rm "${line}"

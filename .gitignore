@@ -2,8 +2,15 @@ registry-data/
 *.working
 *.working2
 *.pem
+*.crt
 Docker_Registry_SA_Simple_Run.sh
 default.conf.quasi
 hostfile
 *.bak
 *.srl
+*.docx
+*.key
+*.srl
+certs/
+*.orig
+*.py
